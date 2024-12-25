@@ -5,7 +5,7 @@ import { Home, About, Projects, Contact } from "./pages";
 
 function App() {
   return (
-    <main className="bg-slate-300/20">
+    <main className="bg-zinc-800/90">
       <Router>
         <Navbar />
         <Routes>
