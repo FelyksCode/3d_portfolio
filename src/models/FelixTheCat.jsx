@@ -13,7 +13,12 @@ import { a } from "@react-spring/three";
 
 import felixScene from "../assets/3d/felix_the_cat.glb";
 
-export default function Model({ isRotating, setIsRotating, ...props }) {
+export default function Model({
+  isRotating,
+  setIsRotating,
+  setCurrentStage,
+  ...props
+}) {
   const felixRef = useRef();
 
   const { gl, viewport } = useThree();
@@ -83,19 +88,20 @@ export default function Model({ isRotating, setIsRotating, ...props }) {
       const normalizedRotation =
         ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
 
+      console.log(normalizedRotation);
       // Set the current stage based on the island's orientation
       switch (true) {
+        case normalizedRotation >= 0.85 && normalizedRotation <= 1.5:
+          setCurrentStage(1);
+          break;
         case normalizedRotation >= 5.45 && normalizedRotation <= 5.85:
-          setCurrentStage(4);
-          break;
-        case normalizedRotation >= 0.85 && normalizedRotation <= 1.3:
-          setCurrentStage(3);
-          break;
-        case normalizedRotation >= 2.4 && normalizedRotation <= 2.6:
           setCurrentStage(2);
           break;
-        case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
-          setCurrentStage(1);
+        case normalizedRotation >= 3.5 && normalizedRotation <= 4:
+          setCurrentStage(3);
+          break;
+        case normalizedRotation >= 2 && normalizedRotation <= 2.5:
+          setCurrentStage(4);
           break;
         default:
           setCurrentStage(null);
@@ -122,78 +128,11 @@ export default function Model({ isRotating, setIsRotating, ...props }) {
 
   return (
     <a.group {...props} ref={felixRef}>
-      <group position={[0.661, 0, -4.092]} rotation={[-Math.PI / 2, 0, -0.014]}>
+      <group
+        position={[0.661, -15, -4.092]}
+        rotation={[-Math.PI / 2, 0.2, 0.5]}
+      >
         <group rotation={[Math.PI / 2, 0, 0]}>
-          <group
-            position={[286.951, 131.071, 455.923]}
-            rotation={[-1.553, 0.01, 0.28]}
-            scale={100}
-          >
-            <mesh
-              geometry={nodes.Cylinder004_Material_0.geometry}
-              material={materials.Material}
-            />
-            <mesh
-              geometry={nodes.Cylinder004_Material001_0.geometry}
-              material={materials["Material.001"]}
-            />
-          </group>
-          <group
-            position={[269.309, 164.045, 323.266]}
-            rotation={[-0.009, -1.212, 2.312]}
-            scale={34.188}
-          >
-            <mesh
-              geometry={nodes.Circle001_Material_0.geometry}
-              material={materials.Material}
-            />
-            <mesh
-              geometry={nodes.Circle001_Material001_0.geometry}
-              material={materials["Material.001"]}
-            />
-          </group>
-          <group
-            position={[-321.429, -46.643, 300.785]}
-            rotation={[-Math.PI / 2, 0, 0]}
-            scale={106.436}
-          >
-            <mesh
-              geometry={nodes.Plane_Material_0.geometry}
-              material={materials.Material}
-            />
-            <mesh
-              geometry={nodes.Plane_Material001_0.geometry}
-              material={materials["Material.001"]}
-            />
-          </group>
-          <group
-            position={[305.912, 6.564, -330.045]}
-            rotation={[-Math.PI / 2, 0, 0]}
-            scale={100}
-          >
-            <mesh
-              geometry={nodes.Cube008_Material_0.geometry}
-              material={materials.Material}
-            />
-            <mesh
-              geometry={nodes.Cube008_Material001_0.geometry}
-              material={materials["Material.001"]}
-            />
-          </group>
-          <group
-            position={[540.256, 375.965, 486.161]}
-            rotation={[-Math.PI / 2, 0, 0]}
-            scale={100}
-          >
-            <mesh
-              geometry={nodes.Cylinder006_Material_0.geometry}
-              material={materials.Material}
-            />
-            <mesh
-              geometry={nodes.Cylinder006_Material001_0.geometry}
-              material={materials["Material.001"]}
-            />
-          </group>
           <group
             position={[75.653, -2.203, 385.15]}
             rotation={[-Math.PI / 2, 0, 0]}
@@ -208,7 +147,8 @@ export default function Model({ isRotating, setIsRotating, ...props }) {
               material={materials["Material.001"]}
             />
           </group>
-          <group
+          {/* FENCE */}
+          {/* <group
             position={[438.132, 126.904, 427.671]}
             rotation={[-Math.PI / 2, 0, 0]}
             scale={86.918}
@@ -221,21 +161,8 @@ export default function Model({ isRotating, setIsRotating, ...props }) {
               geometry={nodes.Cube006_Material001_0.geometry}
               material={materials["Material.001"]}
             />
-          </group>
-          <group
-            position={[265.964, 117.548, 404.491]}
-            rotation={[-Math.PI / 2, 0, 0]}
-            scale={101.991}
-          >
-            <mesh
-              geometry={nodes.Cube005_Material_0.geometry}
-              material={materials.Material}
-            />
-            <mesh
-              geometry={nodes.Cube005_Material001_0.geometry}
-              material={materials["Material.001"]}
-            />
-          </group>
+          </group> */}
+
           <group
             position={[265.493, 91.524, 47.2]}
             rotation={[-Math.PI / 2, 0, 0]}
@@ -290,27 +217,6 @@ export default function Model({ isRotating, setIsRotating, ...props }) {
             position={[0.311, 223.604, 161.744]}
             rotation={[1.293, -0.014, 0]}
             scale={11.386}
-          />
-          <mesh
-            geometry={nodes.Plane001_Material001_0.geometry}
-            material={materials["Material.001"]}
-            position={[505.392, 338.398, -348.609]}
-            rotation={[-0.006, -1.362, 1.803]}
-            scale={29.691}
-          />
-          <mesh
-            geometry={nodes.Text_Material001_0.geometry}
-            material={materials["Material.001"]}
-            position={[268.119, 134.149, 328.375]}
-            rotation={[-0.006, -1.227, 0.757]}
-            scale={26.068}
-          />
-          <mesh
-            geometry={nodes.Circle_Material001_0.geometry}
-            material={materials["Material.001"]}
-            position={[897.585, 955.021, 327.48]}
-            rotation={[1.9, -Math.PI / 2, 0]}
-            scale={123.146}
           />
           <mesh
             geometry={nodes.Sphere001_Material001_0.geometry}
