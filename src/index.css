@@ -75,7 +75,7 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .cta-text {
-    @apply text-black-500 font-extrabold flex-1 text-3xl max-md:text-center;
+    @apply text-purple-50 font-extrabold flex-1 text-3xl max-md:text-center;
   }
 }
 
@@ -109,9 +109,9 @@ body:has(.card[data-color="green"]:hover) {
   transition: 250ms;
   transform-style: preserve-3d;
   transform-origin: bottom right;
-  transform: rotateZ(15deg);
+  transform: rotateZ(3deg);
   will-change: transform;
-  box-shadow: 16px 0 40px #e4e4e4;
+  box-shadow: 16px 0 40px #45588f8b;
 }
 
 .block-container .btn-back-red {
@@ -139,7 +139,7 @@ body:has(.card[data-color="green"]:hover) {
 }
 
 .block-container .btn-back-black {
-  background: linear-gradient(135deg, #0a1647 -20%, #e4e7e4 120%);
+  background: linear-gradient(135deg, #0a1647 -20%, #13ab13 120%);
 }
 
 .block-container .btn-front {
@@ -148,7 +148,7 @@ body:has(.card[data-color="green"]:hover) {
   z-index: 1;
   width: inherit;
   height: inherit;
-  background-color: #ffffff33;
+  background-color: rgba(68, 81, 125, 0.135);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   transition: 250ms;
@@ -180,4 +180,11 @@ body:has(.card[data-color="green"]:hover) {
   border: #fff;
   box-shadow: 0.6vmin 0.6vmin #fff, 1vmin 1vmin #d2e4ff, 1vmin 1vmin #d2e4ff,
     0.65vmin 1vmin #d2e4ff, 1vmin 0.65vmin #d2e4ff;
+}
+
+.neo-brutalism-blue-small {
+  background: #2b77e7;
+  border: #2b77e7;
+  box-shadow: 0.6vmin 0.6vmin #336cc1, 1vmin 1vmin #0092db, 1vmin 1vmin #0092db,
+    0.65vmin 1vmin #0092db, 1vmin 0.65vmin #0092db;
 }

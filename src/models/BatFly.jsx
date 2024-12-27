@@ -17,12 +17,7 @@ function BatFly({ isRotating, ...props }) {
   }, [actions, isRotating]);
 
   return (
-    <mesh
-      {...props}
-      position={props.batflyPosition}
-      scale={props.batflyScale}
-      ref={ref}
-    >
+    <mesh {...props} ref={ref}>
       <group name="Sketchfab_Scene" rotation={[0, 0.5, 0]}>
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="root">

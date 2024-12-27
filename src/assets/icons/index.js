@@ -23,11 +23,20 @@ import snapgram from './snapgram.svg'
 import summiz from './summiz.svg'
 import threads from './threads.svg'
 import arrow from './arrow.svg'
+import arrow_purple from './arrow_purple.svg'
 import contact from './contact.svg'
 import soundon from './soundon.png'
 import soundoff from './soundoff.png'
+import umn from './umn.jpg'
+import laravel from './laravel.svg'
+import ufest from './UfestLogo.webp'
+import pratama from './pratamagede.png'
 
 export {
+    pratama,
+    umn,
+    ufest,
+    laravel,
     css,
     express,
     git,
@@ -53,6 +62,7 @@ export {
     summiz,
     threads,
     arrow,
+    arrow_purple,
     contact,
     soundon,
     soundoff

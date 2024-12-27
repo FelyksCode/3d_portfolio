@@ -1,6 +1,7 @@
-import { Suspense, useState } from "react";
+import { Suspense, useState, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import Loader from "../components/Loader";
+
 import FelixTheCat from "../models/FelixTheCat";
 import Bat from "../models/Bat";
 import Sky from "../models/Sky";
@@ -8,9 +9,26 @@ import Clouds from "../models/Clouds";
 import Batfly from "../models/BatFly";
 import HomeInfo from "../components/HomeInfo";
 
+import song from "../assets/everything_stays.mp3";
+import { soundon, soundoff } from "../assets/icons";
+
 function Home() {
+  const audioRef = useRef(new Audio(song));
+  audioRef.current.volume = 0.2;
+  audioRef.current.loop = true;
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
+  const [isPlayingMusic, setIsPlayingMusic] = useState(false);
+
+  useEffect(() => {
+    if (isPlayingMusic) {
+      audioRef.current.play();
+    }
+
+    return () => {
+      audioRef.current.pause();
+    };
+  }, [isPlayingMusic]);
 
   const adjustModelForScreenSize = () => {
     let screenScale = null;
@@ -73,12 +91,20 @@ function Home() {
           <Bat />
           <Batfly
             isRotating={isRotating}
-            batflyScale={batflyScale}
-            batflyPosition={batflyPosition}
+            scale={batflyScale}
+            position={batflyPosition}
             rotation={[0, 20, 0]}
           />
         </Suspense>
       </Canvas>
+      <div className="absolute bottom-2 left-2">
+        <img
+          src={!isPlayingMusic ? soundoff : soundon}
+          alt="sound"
+          className="w-10 h-10 cursor-pinter object-contain"
+          onClick={() => setIsPlayingMusic(!isPlayingMusic)}
+        />
+      </div>
     </section>
   );
 }
