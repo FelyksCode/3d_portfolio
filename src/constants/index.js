@@ -27,7 +27,12 @@ import {
     laravel,
     umn,
     ufest,
-    pratama
+    pratama,
+    dog,
+    php,
+    android,
+    smiler,
+    umnpc
 } from "../assets/icons";
 
 export const skills = [
@@ -115,6 +120,19 @@ export const skills = [
 
 export const experiences = [
     {
+        title: "Volunteer Teacher ",
+        company_name: "UMN Programming Club",
+        icon: umnpc,
+        iconBg: "#000000",
+        date: "January 2024 - July 2024",
+        points: [
+            "Teaching algorithms and working with each other in explaining materials based on the course taken in university.",
+            "Giving tips & tricks and a shortcut way of thinking.",
+            "Challenging ourself by taking competitive programming excersizes.",
+            "Having code reviews and providing constructive feedback to other developers.",
+        ],
+    },
+    {
         title: "Website Division Coordinator",
         company_name: "UMN Festival",
         icon: ufest,
@@ -127,19 +145,7 @@ export const experiences = [
             "Participating in code reviews and providing constructive feedback to other developers.",
         ],
     },
-    {
-        title: "Laboratory Teaching Assistant - Web Programming",
-        company_name: "FTI LAB UMN",
-        icon: umn,
-        iconBg: "#ffff",
-        date: "January 2024 - November 2024",
-        points: [
-            "Teaching and working together on a project for their final assignment using native PHP and then transitioning to Laravel.",
-            "Students working with clients and making a website project for the client's needs.",
-            "Implementing responsive design using tailwind and bootstrap.",
-            "Participating in groups and discussions in developing the project.",
-        ],
-    },
+
     {
         title: "Web Developer - Laravel",
         company_name: "Pratama Ban Tegal",
@@ -152,13 +158,25 @@ export const experiences = [
             "By using tailwind css our team implement responsive design and ensuring cross-browser compatibility.",
             "Participating in team code reviews and providing constructive feedback to other developers.",
         ],
+    }, {
+        title: "Laboratory Teaching Assistant - Web Programming",
+        company_name: "FTI LAB UMN",
+        icon: umn,
+        iconBg: "#ffff",
+        date: "January 2024 - January 2025",
+        points: [
+            "Teaching and working together on a project for their final assignment using native PHP and then transitioning to Laravel.",
+            "Students working with clients and making a website project for the client's needs.",
+            "Implementing responsive design using tailwind and bootstrap.",
+            "Participating in groups and discussions in developing the project.",
+        ],
     },
     // {
-    //     title: "Full stack Developer",
-    //     company_name: "Meta",
+    //     title: "Backend Developer",
+    //     company_name: "PT. Sannin Kreasi Indonesia",
     //     icon: meta,
     //     iconBg: "#a2d2ff",
-    //     date: "Jan 2023 - Present",
+    //     date: "Jan 2024 - Present",
     //     points: [
     //         "Developing and maintaining web applications using React.js and other related technologies.",
     //         "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
@@ -188,45 +206,59 @@ export const socialLinks = [
 
 export const projects = [
     {
-        iconUrl: pricewise,
-        theme: 'btn-back-red',
-        name: 'Amazon Price Tracker',
-        description: 'Developed a web application that tracks and notifies users of price changes for products on Amazon, helping users find the best deals.',
-        link: 'https://github.com/adrianhajdin/pricewise',
+        iconUrl: dog,
+        theme: 'btn-back-orange',
+        name: 'UMN Gotcha',
+        description: 'Launched on 2 April 2023, UMN Gotcha is a simple web-based game inspired by the classic Tamagotchi. Developed using React, this project showcases our ability to create engaging and interactive user experiences.',
+        link: 'https://github.com/cowcow22/UMNGotcha',
     },
     {
-        iconUrl: threads,
+        iconUrl: react,
+        theme: 'btn-back-white',
+        name: 'Osic (Spotify Clone)',
+        description: 'Developed on 30 May 2023, this project represents one of the first applications created by our team alongside UMN Gotcha. It is a simple replica of the popular music streaming platform Spotify.',
+        link: 'https://github.com/cowcow22/OurMusic',
+    },
+    {
+        iconUrl: php,
+        theme: 'btn-back-fullwhite',
+        name: 'Todo list App',
+        description: 'On 21 October 2023, we developed a simple todo list application using native PHP. Learning the basics of PHP and how to connect it with a MySQL database.',
+        link: 'https://github.com/FelyksCode/WebProgLabUTS-Final',
+    },
+    {
+        iconUrl: php,
+        theme: 'btn-back-fullwhite',
+        name: 'Simple Online Food Shop Website',
+        description: 'On 22 October 2023, we developed a simple online food shop website using native PHP. This project shows the potential of websites that can be made using PHP only.',
+        link: 'https://github.com/FelyksCode/UTSPEMWEBLEC-main',
+    },
+    {
+        iconUrl: laravel,
         theme: 'btn-back-green',
-        name: 'Full Stack Threads Clone',
-        description: 'Created a full-stack replica of the popular discussion platform "Threads," enabling users to post and engage in threaded conversations.',
-        link: 'https://github.com/adrianhajdin/threads',
+        name: 'Paintylux',
+        description: 'On 19 December 2023, grateful to be able to collaborate with Paintylux\'s team to develop their website. Paintylux is a local paint manufacturer. This project is developed using Laravel Livewire and Tailwind CSS.',
+        link: 'https://github.com/oscarjiro/paintylux',
     },
     {
-        iconUrl: car,
+        iconUrl: android,
         theme: 'btn-back-blue',
-        name: 'Car Finding App',
-        description: 'Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.',
-        link: 'https://github.com/adrianhajdin/project_next13_car_showcase',
+        name: 'Mangan.',
+        description: 'Started on 8 October 2024, Mangan. is a food diary application that lets the user store their food inside the application. This project is developed using Android Studio and Firebase.',
+        link: 'https://github.com/cowcow22/UTS_MAP_Mangan',
     },
     {
-        iconUrl: snapgram,
-        theme: 'btn-back-pink',
-        name: 'Full Stack Instagram Clone',
-        description: 'Built a complete clone of Instagram, allowing users to share photos and connect with friends in a familiar social media environment.',
-        link: 'https://github.com/adrianhajdin/social_media_app',
+        iconUrl: laravel,
+        theme: 'btn-back-green',
+        name: 'Pratama Ban Tegal',
+        description: 'On 24 October 2024, my colleagues and I developed a website for Pratama Ban Tegal. Pratama Ban Tegal is a local tire shop. This project is developed using Laravel and Tailwind CSS.',
+        link: 'https://pratamawheelstore.com',
     },
     {
-        iconUrl: estate,
+        iconUrl: smiler,
         theme: 'btn-back-black',
-        name: 'Real-Estate Application',
-        description: 'Developed a web application for real estate listings, facilitating property searches and connecting buyers with sellers.',
-        link: 'https://github.com/adrianhajdin/projects_realestate',
+        name: 'The BlackJek.',
+        description: 'Started on 8 November 2024, a simple Unity game that was meant to be an assignment for the final project. This is a replica of the popular game The Backrooms. This project is developed using Unity.',
+        link: 'https://github.com/cowcow22/UAS-IF580-BackRoom',
     },
-    {
-        iconUrl: summiz,
-        theme: 'btn-back-yellow',
-        name: 'AI Summarizer Application',
-        description: 'App that leverages AI to automatically generate concise & informative summaries from lengthy text content, or blogs.',
-        link: 'https://github.com/adrianhajdin/project_ai_summarizer',
-    }
 ];

@@ -53,6 +53,7 @@ function About() {
           <VerticalTimeline>
             {experiences.map((experience) => (
               <VerticalTimelineElement
+                className="text-yellow-400"
                 key={experience.company_name}
                 date={experience.date}
                 icon={

@@ -31,8 +31,18 @@ import umn from './umn.jpg'
 import laravel from './laravel.svg'
 import ufest from './UfestLogo.webp'
 import pratama from './pratamagede.png'
+import dog from './dog.png'
+import smiler from './smiler.png'
+import umnpc from './umnpc.jpg'
+import php from './php-plain.svg'
+import android from './android.svg'
 
 export {
+    umnpc,
+    smiler,
+    android,
+    php,
+    dog,
     pratama,
     umn,
     ufest,
