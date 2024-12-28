@@ -50,10 +50,12 @@ export default function Model({
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
 
       const delta = (clientX - lastX.current) / viewport.width;
+      // Increase the rotation speed multiplier for more noticeable rotation
+      const rotationMultiplier = 0.02;
 
-      felixRef.current.rotation.y += delta * 0.01 * Math.PI;
+      felixRef.current.rotation.y += delta * rotationMultiplier * Math.PI;
       lastX.current = clientX;
-      rotationSpeed.current = delta * 0.01 * Math.PI;
+      rotationSpeed.current = delta * rotationMultiplier * Math.PI;
     }
   };
 
