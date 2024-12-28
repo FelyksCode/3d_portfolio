@@ -28,12 +28,6 @@ export default function Model({
   const rotationSpeed = useRef(0);
   const dampingFactor = 0.95;
 
-  // Swipe handling variables
-  const swipeStart = useRef({ x: 0, y: 0 });
-  const swipeEnd = useRef({ x: 0, y: 0 });
-  const swipeThreshold = 50; // Minimum swipe distance to consider it a valid swipe
-
-  // Pointer Event Handlers
   const handlePointerDown = (e) => {
     e.stopPropagation();
     e.preventDefault();
@@ -43,13 +37,11 @@ export default function Model({
 
     lastX.current = clientX;
   };
-
   const handlePointerUp = (e) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(false);
   };
-
   const handlePointerMove = (e) => {
     e.stopPropagation();
     e.preventDefault();
@@ -65,7 +57,6 @@ export default function Model({
     }
   };
 
-  // Keyboard Event Handlers
   const handleKeyDown = (e) => {
     if (e.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true);
@@ -82,41 +73,6 @@ export default function Model({
     if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
       setIsRotating(false);
     }
-  };
-
-  // Swipe Event Handlers
-  const handleTouchStart = (e) => {
-    const touch = e.touches[0];
-    swipeStart.current = { x: touch.clientX, y: touch.clientY };
-  };
-
-  const handleTouchMove = (e) => {
-    const touch = e.touches[0];
-    swipeEnd.current = { x: touch.clientX, y: touch.clientY };
-  };
-
-  const handleTouchEnd = () => {
-    const deltaX = swipeEnd.current.x - swipeStart.current.x;
-    const deltaY = swipeEnd.current.y - swipeStart.current.y;
-
-    if (
-      Math.abs(deltaX) > Math.abs(deltaY) &&
-      Math.abs(deltaX) > swipeThreshold
-    ) {
-      if (deltaX > 0) {
-        // Swipe Right
-        felixRef.current.rotation.y -= 0.05 * Math.PI;
-        setCurrentStage((prev) => (prev - 1 >= 1 ? prev - 1 : 4)); // Adjust stage
-      } else {
-        // Swipe Left
-        felixRef.current.rotation.y += 0.05 * Math.PI;
-        setCurrentStage((prev) => (prev + 1 <= 4 ? prev + 1 : 1)); // Adjust stage
-      }
-    }
-
-    // Reset swipe positions
-    swipeStart.current = { x: 0, y: 0 };
-    swipeEnd.current = { x: 0, y: 0 };
   };
 
   useFrame(() => {
@@ -157,37 +113,20 @@ export default function Model({
 
   useEffect(() => {
     const canvas = gl.domElement;
-
-    // Pointer Events
     canvas.addEventListener("pointerdown", handlePointerDown);
     canvas.addEventListener("pointerup", handlePointerUp);
     canvas.addEventListener("pointermove", handlePointerMove);
-
-    // Keyboard Events
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("keyup", handleKeyUp);
 
-    // Touch Events for Swipe Handling
-    canvas.addEventListener("touchstart", handleTouchStart);
-    canvas.addEventListener("touchmove", handleTouchMove);
-    canvas.addEventListener("touchend", handleTouchEnd);
-
     return () => {
-      // Clean up Pointer Events
       canvas.removeEventListener("pointerdown", handlePointerDown);
       canvas.removeEventListener("pointerup", handlePointerUp);
       canvas.removeEventListener("pointermove", handlePointerMove);
-
-      // Clean up Keyboard Events
       document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("keyup", handleKeyUp);
-
-      // Clean up Touch Events
-      canvas.removeEventListener("touchstart", handleTouchStart);
-      canvas.removeEventListener("touchmove", handleTouchMove);
-      canvas.removeEventListener("touchend", handleTouchEnd);
     };
-  }, [gl, isRotating]);
+  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
 
   return (
     <a.group {...props} ref={felixRef}>
